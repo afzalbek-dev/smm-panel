@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "smm-panel"
+version = "1.0.0"
+description = "High-concurrency Social Media Marketing (SMM) reseller aggregator and order execution engine"
+authors = [{ name = "Afzalbek", email = "afzalbek@example.com" }]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.30.0",
+    "pydantic>=2.9.0",
+    "pydantic-settings>=2.4.0",
+    "aiosqlite>=0.20.0",
+    "httpx>=0.27.0",
+    "python-multipart>=0.0.9",
+    "click>=8.1.7",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3.0",
+    "pytest-asyncio>=0.24.0",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
+pythonpath = ["src"]
